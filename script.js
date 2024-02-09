@@ -14,7 +14,14 @@ function convertCSVtoHTML(csvFilePath, htmlFilePath) {
         const rows = data.split('\n');
 
         // Start building the HTML content
-        let htmlContent = '<!DOCTYPE html>\n<html>\n<head>\n<title>CSV to HTML</title>\n</head>\n<body>\n<table border="1">\n';
+        let htmlContent = `<!DOCTYPE html>
+<html>
+<head>
+<title>CSV to HTML</title>
+<link rel="icon" href="../public/favicon.ico">
+</head>
+<body>
+<table border="1">\n`;
 
         // Iterate through each row and create table rows
         rows.forEach((row, rowIndex) => {
@@ -30,7 +37,9 @@ function convertCSVtoHTML(csvFilePath, htmlFilePath) {
         });
 
         // Close the HTML content
-        htmlContent += '</table>\n</body>\n</html>';
+        htmlContent += `</table>
+</body>
+</html>`;
 
         // Write the HTML content to file
         fs.writeFile(htmlFilePath, htmlContent, (err) => {
